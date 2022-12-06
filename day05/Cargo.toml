@@ -1,14 +1,5 @@
-[workspace]
-members = [
-  "day01",
-  "day02",
-  "day03",
-  "day04",
-  "day05",
-]
-
 [package]
-name = "aoc2022"
+name = "day05"
 version = "0.1.0"
 edition = "2021"
 
