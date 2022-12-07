@@ -43,20 +43,18 @@ pub fn part_a(folder_sizes: HashMap<String, u32>) -> u32 {
 
 pub fn part_b(folder_sizes: HashMap<String, u32>) -> u32 {
     let free_space_needed = 30000000 - (70000000 - folder_sizes.get("/").unwrap());
-    let values = folder_sizes
+    folder_sizes
         .values()
         .cloned()
         .collect::<Vec<u32>>()
-        .into_iter();
+        .into_iter()
+        .fold(u32::MAX, |prev, value| {
+            if value >= free_space_needed && value < prev {
+                return value;
+            }
 
-    let mut prev = u32::MAX;
-    for value in values {
-        if value >= free_space_needed && value < prev {
-            prev = value;
-        }
-    }
-
-    prev
+            prev
+        })
 }
 
 #[cfg(test)]
