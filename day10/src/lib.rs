@@ -19,15 +19,15 @@ pub fn part_a(data: Vec<&str>) -> i32 {
             true => {
                 x += data[i].replace("addx ", "").parse::<i32>().unwrap();
                 compute = false;
-                i += 1;
             }
             false => {
                 compute = data[i].contains("addx");
-                if !compute {
-                    i += 1;
-                }
             }
         };
+
+        if !compute {
+            i += 1;
+        }
 
         cycles_count += 1;
     }
@@ -53,15 +53,15 @@ pub fn part_b(data: Vec<&str>) -> String {
             true => {
                 x += data[i].replace("addx ", "").parse::<i32>().unwrap();
                 compute = false;
-                i += 1;
             }
             false => {
                 compute = data[i].contains("addx");
-                if !compute {
-                    i += 1
-                }
             }
         };
+
+        if !compute {
+            i += 1
+        }
 
         cycles_count += 1;
     }
